@@ -9,10 +9,14 @@
 
 #### Mengakses MySQL Client menggunakan PHP MyAdmin
 - Pastikan webserver Apache dan MySQL server sudah dijalankan. Kemudian buka melalui browser: http://localhost/phpmyadmin/
-- Membuat Database: CREATE DATABASE latihan1;
+- Membuat Database
+```sh
+CREATE DATABASE latihan1;
+```
+
 - Membuat Tabel
   
-'''sql
+```sh
 CREATE TABLE data_barang (
     id_barang INT(10) AUTO_INCREMENT PRIMARY KEY,
     kategori VARCHAR(30),
@@ -22,17 +26,18 @@ CREATE TABLE data_barang (
     harga_jual DECIMAL(10,2),
     stok INT(4)
 );
+```
 
 ![alt text](https://github.com/Ainun27/Lab8Web/blob/main/tugas8/2.png?raw=true)
 
 - Menambahkan Data
   
-'''ssh
+```sh
 INSERT INTO data_barang (kategori, nama, gambar, harga_beli, harga_jual, stok)
 VALUES ('Elektronik', 'HP Samsung Android', 'hp_samsung.jpg', 2000000, 2400000, 5),
 ('Elektronik', 'HP Xiaomi Android', 'hp_xiaomi.jpg', 1000000, 1400000, 5),
 ('Elektronik', 'HP OPPO Android', 'hp_oppo.jpg', 1800000, 2300000, 5);
-'''
+```
 ![alt text](https://github.com/Ainun27/Lab8Web/blob/main/tugas8/3.png?raw=true)
 
 #### Membuat Program CRUD
@@ -45,7 +50,7 @@ VALUES ('Elektronik', 'HP Samsung Android', 'hp_samsung.jpg', 2000000, 2400000, 
 #### Membuat file koneksi database
 - Buat file baru dengan nama koneksi.php
   
-'''ssh
+```sh
     <?php
     $host = "localhost";
     $user = "root";
@@ -58,14 +63,14 @@ VALUES ('Elektronik', 'HP Samsung Android', 'hp_samsung.jpg', 2000000, 2400000, 
         die();
     } else echo "Koneksi berhasil";
     ?>
-'''
+```
 - Buka melalui browser untuk menguji koneksi database (untuk menyampilkan pesan koneksi berhasil, uncomment pada perintah echo “koneksi berhasil”;
 ![alt text](https://github.com/Ainun27/Lab8Web/blob/main/tugas8/6.png?raw=true)
 
 #### Membuat file index untuk menampilkan data (Read)
 - Buat file baru dengan nama index.php
 
-'''ssh
+```sh
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,13 +166,13 @@ VALUES ('Elektronik', 'HP Samsung Android', 'hp_samsung.jpg', 2000000, 2400000, 
     </table>
 </body>
 </html>
-'''
+```
 ![alt text](https://github.com/Ainun27/Lab8Web/blob/main/tugas8/7.png?raw=true)
 
 #### Menambah Data (Create)
 - Buat file baru dengan nama tambah.php
   
-'''ssh
+```sh
 <?php
 error_reporting(E_ALL);
 include_once 'koneksi.php';
@@ -255,13 +260,13 @@ if (isset($_POST['submit'])) {
     </div>
 </body>
 </html>
-'''
+```
 ![alt text](https://github.com/Ainun27/Lab8Web/blob/main/tugas8/8.png?raw=true)
 
 #### Mengubah Data (Update)
 - Buat file baru dengan nama ubah.php
   
-'''ssh
+```sh
 <?php
 
 $id = isset($_GET['id']) ? $_GET['id'] : 0;
@@ -309,13 +314,13 @@ $product = [
     </form>
 </body>
 </html>
-'''
+```
 ![alt text](https://github.com/Ainun27/Lab8Web/blob/main/tugas8/9.png?raw=true)
 
 #### Menghapus Data (Delete)
 - Buat file baru dengan nama hapus.php
 
-'''ssh
+```sh
 <?php
 $data_barang = [
     1 => [
@@ -362,7 +367,7 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-'''
+```
 ![alt text](https://github.com/Ainun27/Lab8Web/blob/main/tugas8/10.png?raw=true)
 
 
